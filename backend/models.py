@@ -11,12 +11,27 @@ class Message(BaseModel):
     id: str
     timestamp: str
     type: str
-    text: Optional[TextMessage]
+    text: Optional[TextMessage] = None
+
+
+class ContactProfile(BaseModel):
+    name: str
+
+
+class Contact(BaseModel):
+    profile: ContactProfile
+    wa_id: str
+
+
+class Metadata(BaseModel):
+    display_phone_number: str
+    phone_number_id: str
 
 
 class Value(BaseModel):
     messaging_product: str
-    metadata: Dict
+    metadata: Metadata
+    contacts: Optional[List[Contact]]
     messages: Optional[List[Message]]
 
 

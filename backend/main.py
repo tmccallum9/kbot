@@ -27,7 +27,12 @@ async def whatsapp_webhook(payload: WebhookPayload):
     except (IndexError, AttributeError):
         return {"status": "no message found"}
 
-    message_text = message.text.body if message.text else "No text content"
+    # handles missing `text` or missing `text.body`
+    message_text = (
+        message.text.body
+        if message.text and message.text.body
+        else "No text content"
+    )
     sender_id = message.from_
 
     # Generate summary with OpenAI

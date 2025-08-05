@@ -5,6 +5,7 @@
         "id": "WHATSAPP_BUSINESS_ACCOUNT_ID",
         "changes": [
           {
+            "field": "messages",
             "value": {
               "messaging_product": "whatsapp",
               "metadata": {
@@ -24,14 +25,13 @@
                   "from": "15555555555",
                   "id": "wamid.HBgLM...",
                   "timestamp": "1688123456",
+                  "type": "text",
                   "text": {
                     "body": "Hey team, here are the meeting notes:\n- Launch delayed to Monday\n- Alice will follow up with QA\n- Budget review next week"
-                  },
-                  "type": "text"
+                  }
                 }
               ]
-            },
-            "field": "messages"
+            }
           }
         ]
       }
