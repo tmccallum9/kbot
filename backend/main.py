@@ -51,8 +51,17 @@ def verify_token(mode: str = "", challenge: str = "", verify_token: str = ""):
 
 @app.get("/health")
 def health_check():
+    timestamp = datetime.utcnow().isoformat() + "Z"  # ISO 8601 format with UTC indicator
     try:
         supabase_client.table("summaries").select("id").limit(1).execute()
-        return {"status": "ok", "db": "connected"}
+        return {
+            "status": "ok",
+            "db": "connected",
+            "timestamp": timestamp
+        }
     except Exception as e:
-        return {"status": "error", "db": str(e)}
+        return {
+            "status": "error",
+            "db": str(e),
+            "timestamp": timestamp
+        }
