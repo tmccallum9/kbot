@@ -1,0 +1,68 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+ENV/
+.venv/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# VSCode / IDEs
+.vscode/
+.idea/
+*.swp
+
+# macOS / Windows system files
+.DS_Store
+Thumbs.db
+
+# Logs and runtime
+*.log
+*.pid
+*.sqlite3
+
+# Environment variables and credentials
+.env
+.env.*
+*.env
+
+# Pytest / coverage / test artifacts
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+pytest_cache/
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+
+# Jupyter / notebooks
+.ipynb_checkpoints
+
+# Render build artifacts (optional)
+render.yaml
+
+# Supabase artifacts (optional if you're using CLI locally)
+.supabase/
+
+# Node modules (if you ever use JS frontend in project)
+node_modules/
