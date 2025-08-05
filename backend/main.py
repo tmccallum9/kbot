@@ -1,14 +1,20 @@
 from fastapi import FastAPI, HTTPException
+from datetime import datetime
 import os
 from models import WebhookPayload
 from utilities import summarize_with_openai, send_whatsapp_reply
 from db import store_summary_to_supabase
+from supabase import create_client, Client
 from dotenv import load_dotenv
 load_dotenv()
 
 app = FastAPI()
 
 VERIFY_TOKEN = os.getenv("WHATSAPP_VERIFY_TOKEN")
+SUPABASE_URL = os.getenv("SUPABASE_URL")
+SUPABASE_KEY = os.getenv("SUPABASE_KEY")
+
+supabase_client: Client = create_client(SUPABASE_URL, SUPABASE_KEY)
 
 
 @app.post("/webhook")
@@ -41,3 +47,12 @@ def verify_token(mode: str = "", challenge: str = "", verify_token: str = ""):
     if mode == "subscribe" and verify_token == VERIFY_TOKEN:
         return int(challenge)
     return {"status": "not verified"}
+
+
+@app.get("/health")
+def health_check():
+    try:
+        supabase_client.table("summaries").select("id").limit(1).execute()
+        return {"status": "ok", "db": "connected"}
+    except Exception as e:
+        return {"status": "error", "db": str(e)}
