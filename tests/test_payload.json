@@ -1,0 +1,39 @@
+{
+    "object": "whatsapp_business_account",
+    "entry": [
+      {
+        "id": "WHATSAPP_BUSINESS_ACCOUNT_ID",
+        "changes": [
+          {
+            "value": {
+              "messaging_product": "whatsapp",
+              "metadata": {
+                "display_phone_number": "1234567890",
+                "phone_number_id": "1234567890"
+              },
+              "contacts": [
+                {
+                  "profile": {
+                    "name": "Test User"
+                  },
+                  "wa_id": "15555555555"
+                }
+              ],
+              "messages": [
+                {
+                  "from": "15555555555",
+                  "id": "wamid.HBgLM...",
+                  "timestamp": "1688123456",
+                  "text": {
+                    "body": "Hey team, here are the meeting notes:\n- Launch delayed to Monday\n- Alice will follow up with QA\n- Budget review next week"
+                  },
+                  "type": "text"
+                }
+              ]
+            },
+            "field": "messages"
+          }
+        ]
+      }
+    ]
+  }

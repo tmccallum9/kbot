@@ -66,3 +66,9 @@ render.yaml
 
 # Node modules (if you ever use JS frontend in project)
 node_modules/
+
+# Ignore test artifacts
+/tests/*.log
+/tests/*.csv
+/tests/*.env
+/tests/__pycache__/
